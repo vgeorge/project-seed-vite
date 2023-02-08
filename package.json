@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@devseed-ui/date-picker": "^4.1.0",
     "@devseed-ui/theme-provider": "^4.1.0",
+    "@devseed-ui/typography": "^4.1.0",
     "add": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

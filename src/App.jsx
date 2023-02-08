@@ -1,8 +1,10 @@
-import { useCallback, useState } from 'react'
-import favicon from './graphics/meta/favicon.png'
-import {time} from './time.json'
+import { Table } from "@devseed-ui/typography";
+import { useCallback, useState } from "react";
+import favicon from "./graphics/meta/favicon.png";
+import { time } from "./time.json";
+// import { DatePicker } from '@devseed-ui/date-picker';
 
-const apiUrl = import.meta.env.VITE_API_URL
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -13,7 +15,7 @@ function App() {
       const result = await response.json();
       setLoaded(result);
     } catch (error) {
-      setLoaded('Error');
+      setLoaded("Error");
     }
   }, []);
 
@@ -25,28 +27,36 @@ function App() {
       </p>
 
       <p>
-        {!loaded && 'Data not loaded.'}
+        {!loaded && "Data not loaded."}
         {!loaded && (
-          <button type='button' onClick={loadData}>
+          <button type="button" onClick={loadData}>
             Load data
           </button>
         )}
-        {
-          loaded && `Current project-seed version: ${loaded.version}`
-        }
+        {loaded && `Current project-seed version: ${loaded.version}`}
       </p>
-
 
       <h3>Image loaded via data-url</h3>
       <img src={favicon} width={96} />
 
       <h3>Image loaded directly</h3>
-      <img src={`${apiUrl}/static/default-meta-image.png`} width={200} /> 
+      <img src={`${apiUrl}/static/default-meta-image.png`} width={200} />
+
+      <Table>
+        <thead>
+          <tr>
+            <th colspan="2">The table header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The table body</td>
+            <td>with two columns</td>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 }
 
-export default App
-
-
-
+export default App;
